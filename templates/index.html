@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="board">
+       {% for row in board %}
+         {% for cell in row %}
+           <div class="cell">{{cell}}</div>
+         {% endfor %}  
+       {% endfor %}
+        <!-- <div class="cell" id="row1-col2"></div>
+        <div class="cell" id="row1-col1"></div>
+        <div class="cell" id="row1-col3"></div>
+        <div class="cell" id="row1-col4"></div>
+        <div class="cell" id="row1-col5"></div>
+        <div class="cell" id="row2-col1"></div>
+        <div class="cell" id="row2-col2"></div>
+        <div class="cell" id="row2-col3"></div>
+        <div class="cell" id="row2-col4"></div>
+        <div class="cell" id="row2-col5"></div>
+        <div class="cell" id="row3-col1"></div>
+        <div class="cell" id="row3-col2"></div>
+        <div class="cell" id="row3-col3"></div>
+        <div class="cell" id="row3-col4"></div>
+        <div class="cell" id="row3-col5"></div>
+        <div class="cell" id="row4-col1"></div>
+        <div class="cell" id="row4-col2"></div>
+        <div class="cell" id="row4-col3"></div>
+        <div class="cell" id="row4-col4"></div>
+        <div class="cell" id="row4-col5"></div>
+        <div class="cell" id="row5-col1"></div>
+        <div class="cell" id="row5-col2"></div>
+        <div class="cell" id="row5-col3"></div>
+        <div class="cell" id="row5-col4"></div>
+        <div class="cell" id="row5-col5"></div> -->
+    </div>
+    <p>High Score: 
+        <b>{{ highscore }}</b> 
+        in {{ nplays }} plays
+      </p>
+
+      <p>
+        Score: <b class="score">0</b>
+        Seconds Left: <b class="timer"></b>
+      </p>
+
+      <form method="POST" class="add-word">
+        <input name="word" class="word" autofocus>
+        <button>Enter</button>
+      </form>
+
+      <p class="msg">
+        <!-- our JS will put messages here dynamically -->
+      </p>
+
+      <ul class="words">
+        <!-- our JS will put words here as they score -->   
+      </ul>
+    <script src="http://unpkg.com/jquery"></script>
+    <script src="https://unpkg.com/axios@0.19.0/dist/axios.js"></script>
+    <script src="/static/boggle.js"></script>
+    <script>
+      let game = new BoggleGame("boggle", 60);
+    </script>
+</body>
+</html>

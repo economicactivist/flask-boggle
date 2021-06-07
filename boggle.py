@@ -7,23 +7,27 @@ import string
 class Boggle():
 
     def __init__(self):
-
+        #access to read_dict before initialization?
         self.words = self.read_dict("words.txt")
 
+        #! shouldn't this be a static method?
     def read_dict(self, dict_path):
         """Read and return all words in dictionary."""
 
         dict_file = open(dict_path)
+        #return of list of valid words, w/o whitespace 
         words = [w.strip() for w in dict_file]
         dict_file.close()
         return words
 
+        #! shouldn't this be a static method?
     def make_board(self):
         """Make and return a random boggle board."""
 
         board = []
 
         for y in range(5):
+            #* make a list 5 random letters from 'A-Z' and add to board list
             row = [choice(string.ascii_uppercase) for i in range(5)]
             board.append(row)
 
@@ -108,6 +112,8 @@ class Boggle():
             if self.find_from(board, word[1:], y, x + 1, seen):
                 return True
 
+        #?  How will it ever reach this point since y>0 is already covered?
+
         # diagonals
         if y > 0 and x > 0:
             if self.find_from(board, word[1:], y - 1, x - 1, seen):
@@ -136,6 +142,7 @@ class Boggle():
 
         for y in range(0, 5):
             for x in range(0, 5):
+                #? why not make seen=set() a default parameter?
                 if self.find_from(board, word, y, x, seen=set()):
                     return True
 

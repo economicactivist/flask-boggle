@@ -1,0 +1,33 @@
+body{
+    margin: 0 auto;
+   
+}
+
+
+.board{
+    margin: 1vh auto;
+    display: grid;
+    border: 2px blue solid;
+    
+    height: 90vh;
+    width: 90vw;
+ 
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    
+    grid-gap: 10px;
+}
+
+.cell{
+   
+    background-color: rgb(199, 127, 127);
+    text-align: center;
+}
+
+.err {
+    color: red;
+}
+
+.ok {
+    color: green;
+}
